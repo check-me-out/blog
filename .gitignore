@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+Blog.Data/obj/*
+Blog.Data/bin/*
+Blog.Web/obj/*
+Blog.Web/bin/*
+Blog.Web/Properties/PublishProfiles/*
+Blog.Web/node_modules/*
+packages/*
+.vs/*

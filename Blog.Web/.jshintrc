@@ -1,0 +1,21 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "undef": true,
+  "unused": true,
+  "latedef": true,
+  "eqnull": true,
+  "validthis": true,
+  "globals": {
+    "window": false,
+    "jQuery": false,
+    "$": false,
+    "ko": false,
+    "Enumerable": false,
+    "angular": false,
+    "module": false,
+    "require": false,
+    "XMLHttpRequest": false
+  }
+}

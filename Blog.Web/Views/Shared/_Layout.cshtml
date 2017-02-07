@@ -1,0 +1,126 @@
+﻿@using Blog.Web
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guru In .NET or .NET guru is a website developed to highlight some key aspects of web development using .NET framework.">
+    <meta name="keywords" content=".NET, guru, guru in .NET,">
+    <meta name="robots" content="noindex, follow">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    @{ var title = !string.IsNullOrWhiteSpace(ViewBag.Title) ? ViewBag.Title + " - " + Request.Url.Host : Request.Url.Host; }
+    <title>@title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/css/site.min.css" />
+    @*<meta http-equiv="Content-Security-Policy" content="default-src 'self'; image-src https:*; child-src 'none'; script-src *.bootstrapcdn.com *.maxcdn.com *.googleapis.com *.cloudflare.com">*@
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    @RenderSection("pageStyle", required: false)
+</head>
+<body>
+    @{ var rootUrl = Url.Action("Index", "Home"); }
+    <script type="text/javascript">var rooturl = '@rootUrl';</script>
+
+    <div id="bootstrap-css-cdn-fallback" class="hidden"></div>
+    <noscript>Please enable Javascript (&lt;a href="http://enable-javascript.com/" title="Instructions to enable Javascript" target="_blank"&gt;help&lt;/a&gt;).</noscript>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="' + rooturl + 'Content/packages/jquery/dist/jquery.min.js"><\/script>')</script>
+
+    <main>
+        <section class="page-banner-section color-primary">
+            <div class="navbar-placeholder">
+                <div class="container">
+                    <nav class="navbar navbar-inverse">
+                        @Html.Partial("_Navbar")
+                    </nav>
+                </div>
+            </div>
+
+            <section class="breadcrumbs-container">
+                <div class="container-fixed">
+                    <div class="container">
+                        @RenderSection("breadcrumbs", required: false)
+                    </div>
+                </div>
+            </section>
+
+            <div class="container-fixed">
+                <div class="page-banner gradient-background color-primary">
+                    @RenderSection("PageBanner", required: false)
+                </div>
+            </div>
+        </section>
+
+        <section class="body-and-footer" style="min-height: calc(100% - 320px)">
+            <section class="body-content container">
+                <div class="row">
+                    <section id="main-content" class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div style="margin-bottom: 50px">
+                            @RenderBody()
+                        </div>
+                    </section>
+                    <section>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            @RenderSection("blogMenu", required: false)
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <footer class="container">
+                <div class="line-underscore"></div>
+                <p>
+                    <span class="text-capitalize">&copy; @DateTime.Now.Year - @Request.Url.Host</span>
+                    @{ var ver = typeof(MvcApplication).Assembly.GetName().Version;
+                        var builtOn = new DateTime(2000, 1, 1).AddDays(ver.Build);
+                        var buildNumber = (DateTime.Now.Year - 2000) + builtOn.DayOfYear.ToString("#000"); }
+                    <a href="@string.Concat(rootUrl, "ver")" style="float: right"><span>v</span>@ver.Major.@ver.Minor.@buildNumber</a>
+                </p>
+            </footer>
+        </section>
+    </main>
+
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+    <script type="text/javascript">
+        @*Fallback for Bootstrap CSS CDN*@
+        if ($('#bootstrap-css-cdn-fallback').is(':visible') === true) {
+            $('<link href="' + rooturl + 'Content/packages/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />').appendTo('head');
+            $('<link href="' + rooturl + 'Content/css/site.min.css" rel="stylesheet" type="text/css" />').appendTo('head'); // Ensure site css overrides when bootstrap css is reloaded.
+        }
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>(window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="' + rooturl + 'Content/packages/bootstrap/dist/js/bootstrap.min.js"><\/script>')</script>
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        @*Non-minified version very helpful in identifying Angular errors.*@
+        <script src="~/Content/packages/angular/angular.js"></script>
+    }
+    else
+    {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" integrity="sha256-3SrLjPeRPa1ofM280r+OMcUjJZKLWJHr6SRtRu3dRb0=" crossorigin="anonymous"></script>
+        <script> window.angular || document.write('<script src="' + rooturl + 'Content/packages/angular/angular.min.js"><\/script>')</script>
+    }
+
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js" integrity="sha384-D036DCQcFKVjaInZT7J2WWKtVBAh1JoTqn/yu7nhkc+dsvSFe1w8TsJkqEqc6a3Y" crossorigin="anonymous"></script>
+
+    <!-- BUNDLES: BundleConfig.cs bundle (which is dynamic content) is not used due to load on the web server when compressing dynamic content. -->
+    <!-- Instead, a JS task runner (Grunt) is used to generate build-time static content bundles to take advantage of static file compression &caching by IIS. -->
+    <link rel="stylesheet" href="~/Content/bundles/third-party-libs.min.css" />
+    <script src="~/Content/bundles/third-party-libs.min.js"></script>
+
+    <script src="~/Content/js/site.min.js"></script>
+
+    <script src="~/app/app-bundle.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

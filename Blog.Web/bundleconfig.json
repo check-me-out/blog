@@ -1,0 +1,41 @@
+[
+  {
+    "outputFileName": "Content/css/site.min.css",
+    "inputFiles": [
+      "Content/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/site.min.js",
+    "inputFiles": [
+      "Content/js/site.js",
+      "Content/js/code-styler.js",
+      "Content/js/utils.js"
+    ]
+  },
+  {
+    "outputFileName": "app/app-bundle.min.js",
+    "inputFiles": [
+      "blog-layout.js",
+      "app/AllPosts.VM.js",
+      "app/AllPosts.Api.js",
+      "app/AllPosts.Controller.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/bundles/third-party-libs.min.css",
+    "inputFiles": [
+      "Content/packages/angular-loading-bar/build/loading-bar.css",
+      "Content/packages/toaster/toaster.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/bundles/third-party-libs.min.js",
+    "inputFiles": [
+      "Content/packages/knockout/dist/knockout.js",
+      "Content/packages/angular-animate/angular-animate.js",
+      "Content/packages/angular-loading-bar/build/loading-bar.js",
+      "Content/packages/toaster/toaster.js"
+    ]
+  }
+]

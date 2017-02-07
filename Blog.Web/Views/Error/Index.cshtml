@@ -1,0 +1,53 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+@{ var errorCodeMeaning = Model.Exception is HttpException ? (Model.Exception as HttpException).GetHtmlErrorMessage() : string.Empty; }
+@{ errorCodeMeaning = string.IsNullOrWhiteSpace(errorCodeMeaning) && (Response.StatusCode == 401 || Response.StatusCode == 403) ? "Unauthorized Access" : errorCodeMeaning; }
+@{ errorCodeMeaning = string.IsNullOrWhiteSpace(errorCodeMeaning) && Response.StatusCode == 404 ? "Page Not Found" : errorCodeMeaning; }
+@{ errorCodeMeaning = string.IsNullOrWhiteSpace(errorCodeMeaning) && Response.StatusCode == 500 ? "Internal Server Error" : errorCodeMeaning; }
+@{ var pageTitle = !string.IsNullOrWhiteSpace(errorCodeMeaning) ? errorCodeMeaning : "An Error Occurred"; }
+
+@section PageBanner {
+    <h1 style="color: red"><span class="glyphicon glyphicon-remove-sign"></span> @pageTitle</h1>
+    <br />
+    <h4>Sorry, an error occurred while processing your request!</h4>
+    <br />
+    <h4>Below details have been logged for investigation by the Administrator.</h4>
+}
+
+@if (Model != null && Model.Exception != null)
+{
+    <h5>Error Message:</h5>
+    var ex = Model.Exception;
+    while (ex != null)
+    {
+        <ul><li>@ex.Message</li></ul>
+        ex = ex.InnerException;
+    }
+
+    if (Model.Exception.GetType().FullName != "System.Exception" && Model.Exception.GetType().FullName != "System.Web.HttpException")
+    {
+        <h5>Error Type:</h5>
+        <ul>
+            <li>@Model.Exception.GetType().FullName</li>
+        </ul>
+    }
+
+    if (Response.StatusCode != 200)
+    {
+        <h5>Error Code:</h5>
+        <ul>
+            @{ errorCodeMeaning = !string.IsNullOrWhiteSpace(errorCodeMeaning) ? "(" + errorCodeMeaning + ")" : string.Empty; }
+            <li>@Response.StatusCode @errorCodeMeaning</li>
+        </ul>
+    }
+
+    if (!string.IsNullOrWhiteSpace(Model.Exception.StackTrace))
+    {
+        <h5>Error Stack:</h5>
+        <pre style="color: red; background: #fff0f0; max-height: 500px; overflow: auto">@Model.Exception.StackTrace</pre>
+    }
+}
