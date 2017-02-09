@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Blog.Data.Context;
 using Blog.Data.Model;
 
 namespace Blog.Web.Controllers
 {
+    [Authorize]
     public class BlogAdminController : Controller
     {
         private readonly IBlogDbContext _db;
@@ -36,8 +32,10 @@ namespace Blog.Web.Controllers
         // POST: BlogAdmin/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AdminAuthorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public async Task<ActionResult> Create([Bind(Include = "Id,Title,ShortDescription,Content,UrlSlug,Published,PostedOn,ModifiedOn")] Post post)
         {
             if (ModelState.IsValid)
@@ -68,8 +66,10 @@ namespace Blog.Web.Controllers
         // POST: BlogAdmin/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AdminAuthorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Title,ShortDescription,Content,UrlSlug,Published,PostedOn,ModifiedOn")] Post post)
         {
             if (ModelState.IsValid)
@@ -97,6 +97,7 @@ namespace Blog.Web.Controllers
         }
 
         // POST: BlogAdmin/Delete/5
+        [AdminAuthorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
