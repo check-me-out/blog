@@ -14,7 +14,7 @@
 @color-4: #fff;
 @color-4-bg: lighten(purple, 10%);//lighten(#68217a, 15%)
 
-@navbar-color-bg: darken(rgb(20,136,198), 10%); //lighten(darkslategrey, 5%), coral, #a4d703
+@navbar-color-bg: #0f6898; //lighten(darkslategrey, 5%), coral, #a4d703
 @navbar-border-color: darken(@navbar-color-bg, 10%);
 @banner-color-bg: @color-primary-bg;
 @banner-color: #fff;
@@ -32,6 +32,37 @@
 @blog-category-highlight:       @main-theme-color;
 @blog-tag-bg:                   #999;
 @blog-tag-highlight:            @main-theme-color;
+
+@error-color:                   #d00;
+
+
+.btn {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+    border-bottom-width: 3px;
+    border-right-width: 2px;
+}
+.btn-default {
+    .btn-override(#fff);
+}
+.btn-primary {
+    .btn-override(@brand-primary);
+}
+.btn-info {
+    .btn-override(@brand-info);
+}
+.btn-success {
+    .btn-override(@brand-success);
+}
+.btn-warning {
+    .btn-override(@brand-warning);
+}
+.btn-danger {
+    .btn-override(@brand-danger);
+}
+
+.btn-override(@color-bg)  {
+    background-color: @color-bg;
+}
 
 html, body {
     height: 100%;
@@ -239,12 +270,21 @@ main {
     min-height: 300px;
     padding-top: 100px;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3 {
         padding: 20px;
         margin: auto;
         text-align: center;
         @media(min-width:768px) {
             width: 50%;
+        }
+    }
+
+    h4, h5, h6 {
+        padding: 7px;
+        margin: auto;
+        text-align: center;
+        @media(min-width:768px) {
+            width: 75%;
         }
     }
 }
@@ -376,7 +416,7 @@ footer {
 input,
 select,
 textarea {
-    max-width: 280px;
+    //max-width: 280px;
 }
 
 
@@ -525,11 +565,13 @@ textarea {
     color: #eee;
     background-color: @blog-tag-highlight !important;
     padding: 5px 8px !important;
+    border-radius: 2px;
 
     &:hover,
     &:focus {
         color: #eee;
         background-color: darken(@blog-tag-highlight, 5%) !important;
+        text-decoration: none;
     }
 
     &:after {
@@ -572,8 +614,8 @@ textarea {
 
     &:hover,
     &:focus {
-        text-decoration: none;
         color: #f5f5f5;
+        text-decoration: none;
         background-color: @blog-tag-highlight;
     }
 }
@@ -597,9 +639,9 @@ textarea {
 }
 
 .blog-content {
-    padding: 20px 0;
+    padding: 0 0 20px 0;
     text-align: justify;
-    border-top: 1px dotted #777;
+    border-top: 0px dotted #777;
     border-bottom: 1px dotted #777;
 
     p {
@@ -655,10 +697,16 @@ textarea {
     }
 }
 
+.new-comment-section {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-left: 7px solid #ccc
+}
+
 .comment-history {
     padding-top: 20px;
     margin: 20px 0;
-    border-top: 1px dotted #777;
+    border-top: 0px dotted #777;
 
     .comment {
         margin: 20px 0;
@@ -699,9 +747,9 @@ textarea {
 #work-in-progress {
     display: none;
     position: fixed; 
-    top: 33%; 
+    top: 42%; 
     left: 42%; 
-    z-index: 1100;
+    z-index: 1200;
 
     span {
         position: fixed; 
@@ -719,7 +767,80 @@ textarea {
 
     div {
         color: #333;
-        margin-left: -75px;
+        margin-left: -50px;
         font-weight: bold;
     }
+}
+
+
+/* Styles for table
+-----------------------------------------------------------*/
+table {
+    width: 100%;
+
+	thead > tr {
+        background-color: #f5f5f5;
+        color: #333;
+        border-bottom: 3px solid #aaa;
+
+	    th {
+            padding: 18px 18px 18px 12px;
+	    }
+	}
+
+	tbody {
+        background-color: #fff;
+        color: #333;
+	}
+
+	tbody > tr {
+        border-bottom: 1px solid #999;
+
+	    td {
+            padding: 12px 18px 12px 12px;
+
+	        a {
+                color: #333;
+	        }
+	    }
+
+	    &:hover {
+            background-color: #f5f5f5;
+	    }
+	}
+}
+
+.form-control {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: @error-color;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid @error-color;
+}
+
+.validation-summary-errors {
+    color: @error-color;
+    ul {
+        padding-left: 0;
+
+        li {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
+}
+
+.validation-summary-valid {
+    display: none;
 }

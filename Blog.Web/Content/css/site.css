@@ -3,6 +3,29 @@
  * https://github.com/shree-venkat
  */
 /* BOOTSTRAP COLOR CODES */
+.btn {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+  border-bottom-width: 3px;
+  border-right-width: 2px;
+}
+.btn-default {
+  background-color: #fff;
+}
+.btn-primary {
+  background-color: #337ab7;
+}
+.btn-info {
+  background-color: #41b3e2;
+}
+.btn-success {
+  background-color: #5cb85c;
+}
+.btn-warning {
+  background-color: #ff7900;
+}
+.btn-danger {
+  background-color: #d9534f;
+}
 html,
 body {
   height: 100%;
@@ -43,7 +66,7 @@ header {
 }
 nav.navbar {
   background: linear-gradient(to top, #0f6898, #0d5881, #0f6898);
-  border-color: #0b4869;
+  border-color: #0a486a;
   margin: auto;
   border-width: 1px;
   font-size: 1em;
@@ -107,7 +130,7 @@ nav.navbar {
   border-radius: 5px 5px !important;
   color: #ccc;
   background: linear-gradient(to top, #0f6898, #0d5881, #0f6898);
-  border: 1px solid #0b4869;
+  border: 1px solid #0a486a;
   border-top-color: #0f6898;
   -webkit-box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
@@ -184,10 +207,7 @@ main {
 }
 .page-banner h1,
 .page-banner h2,
-.page-banner h3,
-.page-banner h4,
-.page-banner h5,
-.page-banner h6 {
+.page-banner h3 {
   padding: 20px;
   margin: auto;
   text-align: center;
@@ -195,11 +215,22 @@ main {
 @media (min-width: 768px) {
   .page-banner h1,
   .page-banner h2,
-  .page-banner h3,
+  .page-banner h3 {
+    width: 50%;
+  }
+}
+.page-banner h4,
+.page-banner h5,
+.page-banner h6 {
+  padding: 7px;
+  margin: auto;
+  text-align: center;
+}
+@media (min-width: 768px) {
   .page-banner h4,
   .page-banner h5,
   .page-banner h6 {
-    width: 50%;
+    width: 75%;
   }
 }
 .gradient-background {
@@ -284,11 +315,6 @@ footer {
   white-space: normal;
 }
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-  max-width: 280px;
-}
 /* MULTI-PAGE */
 /* INDEX PAGE */
 .carousel-body {
@@ -418,11 +444,13 @@ textarea {
   color: #eee;
   background-color: #91be02 !important;
   padding: 5px 8px !important;
+  border-radius: 2px;
 }
 .selected:hover,
 .selected:focus {
   color: #eee;
   background-color: #7da402 !important;
+  text-decoration: none;
 }
 .selected:after {
   margin-left: 8px;
@@ -458,8 +486,8 @@ textarea {
 }
 .tag-link:hover,
 .tag-link:focus {
-  text-decoration: none;
   color: #f5f5f5;
+  text-decoration: none;
   background-color: #91be02;
 }
 .highlight-search-term {
@@ -475,9 +503,9 @@ textarea {
   border-radius: 6px;
 }
 .blog-content {
-  padding: 20px 0;
+  padding: 0 0 20px 0;
   text-align: justify;
-  border-top: 1px dotted #777;
+  border-top: 0px dotted #777;
   border-bottom: 1px dotted #777;
 }
 .blog-content p {
@@ -519,10 +547,15 @@ textarea {
 .blog-content .CSharp .comment .literal {
   color: #090;
 }
+.new-comment-section {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-left: 7px solid #ccc;
+}
 .comment-history {
   padding-top: 20px;
   margin: 20px 0;
-  border-top: 1px dotted #777;
+  border-top: 0px dotted #777;
 }
 .comment-history .comment {
   margin: 20px 0;
@@ -555,9 +588,9 @@ textarea {
 #work-in-progress {
   display: none;
   position: fixed;
-  top: 33%;
+  top: 42%;
   left: 42%;
-  z-index: 1100;
+  z-index: 1200;
 }
 #work-in-progress span {
   position: fixed;
@@ -573,6 +606,63 @@ textarea {
 }
 #work-in-progress div {
   color: #333;
-  margin-left: -75px;
+  margin-left: -50px;
   font-weight: bold;
+}
+/* Styles for table
+-----------------------------------------------------------*/
+table {
+  width: 100%;
+}
+table thead > tr {
+  background-color: #f5f5f5;
+  color: #333;
+  border-bottom: 3px solid #aaa;
+}
+table thead > tr th {
+  padding: 18px 18px 18px 12px;
+}
+table tbody {
+  background-color: #fff;
+  color: #333;
+}
+table tbody > tr {
+  border-bottom: 1px solid #999;
+}
+table tbody > tr td {
+  padding: 12px 18px 12px 12px;
+}
+table tbody > tr td a {
+  color: #333;
+}
+table tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+.form-control {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+}
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+  color: #d00;
+}
+.field-validation-valid {
+  display: none;
+}
+.input-validation-error {
+  border: 1px solid #d00;
+}
+.validation-summary-errors {
+  color: #d00;
+}
+.validation-summary-errors ul {
+  padding-left: 0;
+}
+.validation-summary-errors ul li {
+  list-style-type: none;
+  padding-left: 0;
+}
+.validation-summary-valid {
+  display: none;
 }

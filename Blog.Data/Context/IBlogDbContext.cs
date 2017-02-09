@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Threading.Tasks;
 using Blog.Data.Model;
 
 namespace Blog.Data.Context
@@ -8,6 +9,8 @@ namespace Blog.Data.Context
     public interface IBlogDbContext : IDisposable
     {
         int SaveChanges();
+
+        Task<int> SaveChangesAsync();
 
         DbEntityEntry Entry(object entity);
 

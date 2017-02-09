@@ -20,7 +20,7 @@ var utils = (function () { // jshint ignore: line
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-    function Invoke(url, data, method, asynchronous, onSuccess, onError) {
+    function invoke(url, data, method, asynchronous, onSuccess, onError) {
         if (url === undefined || url === '') {
             return null;
         }
@@ -58,7 +58,7 @@ var utils = (function () { // jshint ignore: line
         });
     }
 
-    function ShowProcessing(message) {
+    function showProcessing(message) {
         if (message) {
             $("#work-in-progress div").html(message);
         }
@@ -66,15 +66,15 @@ var utils = (function () { // jshint ignore: line
         $("#work-in-progress").show();
     }
 
-    function HideProcessing() {
+    function hideProcessing() {
         $("#work-in-progress div").html('');
         $("#work-in-progress").hide();
     }
 
     return {
         getQsValue: getQsValue,
-        Invoke: Invoke,
-        ShowProcessing: ShowProcessing,
-        HideProcessing: HideProcessing
+        invoke: invoke,
+        showProcessing: showProcessing,
+        hideProcessing: hideProcessing
     };
 }());

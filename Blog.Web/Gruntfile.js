@@ -12,7 +12,6 @@ module.exports = function (grunt) {
     };
     var siteCssBundle = getBundle("Content/css/site.min.css");
     var siteJsBundle = getBundle("Content/js/site.min.js");
-    var appBundle = getBundle("app/app-bundle.min.js");
     var vendorJsBundle = getBundle("Content/bundles/third-party-libs.min.js");
 
     var toJSON = function (key, val) {
@@ -58,13 +57,6 @@ module.exports = function (grunt) {
                 src: [siteJsBundle.inputFiles],
                 dest: siteJsBundle.outputFileName
             },
-            appBundle: {
-                options: {
-                    banner: "<%= banner %>", compress: true
-                },
-                src: [appBundle.inputFiles],
-                dest: appBundle.outputFileName
-            },
             vendorJsBundle: {
                 options: {
                     compress: true
@@ -78,7 +70,7 @@ module.exports = function (grunt) {
             options: {
                 jshintrc: true
             },
-            files: ["*.js", "app/**/*.js", "Content/js/*.js", "!app/app-bundle.min.js", "!Content/js/site.min.js", "!Content/packages/**/*.js"]
+            files: ["*.js", "Content/js/*.js", "!Content/js/site.min.js", "!Content/packages/**/*.js"]
         }
     };
 

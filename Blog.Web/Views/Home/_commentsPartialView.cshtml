@@ -1,6 +1,6 @@
 ﻿@model Blog.Web.Models.CommentViewModel
 
-<div>
+<section class="new-comment-section">
     @{
         var provideFeedbackMessage = "";
         if (Model.AllComments != null && Model.AllComments.Count == 0)
@@ -29,7 +29,7 @@
             <span id="new-comment-content-custom-error"></span>
 
             <div class="form-inline row" style="margin: 10px 0 20px 0">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-left: 0; padding-right: 0">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="padding-left: 0; padding-right: 0">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
                         @Html.TextBoxFor(model => model.NewComment.Name, new { @class = "form-control", id = "new-comment-name", placeholder = "Display Name", style = "width: 100%" })
@@ -38,7 +38,7 @@
                     @Html.ValidationMessageFor(model => model.NewComment.Name)
                     <span id="new-comment-name-custom-error"></span>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-left: 0; padding-right: 0">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" style="padding-left: 0; padding-right: 0">
                     <div class="input-group">
                         <div class="input-group-addon hidd"><i class="fa fa-envelope fa-fw"></i></div>
                         @Html.TextBoxFor(model => model.NewComment.Email, new { @class = "form-control", placeholder = "Email (private, optional)", style = "width: 100%" })
@@ -46,8 +46,8 @@
                     <br />
                     @Html.ValidationMessageFor(model => model.NewComment.Email)
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-right: 0">
-                    <div class="visible-xs" style="padding-top: 15px"></div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-right: 0">
+                    <div class="visible-xs visible-sm" style="padding-top: 15px"></div>
                     <button class="btn btn-success btn-md" style="float: right">
                         Add Comment &nbsp; <i class="fa fa-plus-square fa-1_1x"></i>
                     </button>
@@ -58,7 +58,7 @@
             @Html.ValidationSummary(true)
         }
     }
-</div>
+</section>
 
 <div class="clearfix"></div>
 

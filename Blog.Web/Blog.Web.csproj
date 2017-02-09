@@ -195,6 +195,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\BlogController.cs" />
+    <Compile Include="Controllers\BlogAdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -215,10 +216,9 @@
     <Compile Include="Properties\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\Blog.Api.js" />
-    <Content Include="app\Blog.Controller.js" />
-    <Content Include="app\Blog.VM.js" />
-    <Content Include="app\app-bundle.min.js" />
+    <Content Include="Content\js\Blog.Api.js" />
+    <Content Include="Content\js\Blog.Controller.js" />
+    <Content Include="Content\js\Blog.VM.js" />
     <Content Include="Content\images\gif-load.gif" />
     <Content Include="Content\js\blog-layout.js" />
     <Content Include="Content\bundles\third-party-libs.min.js" />
@@ -247,6 +247,7 @@
     <Content Include="Content\packages\bootstrap\dist\js\bootstrap.js" />
     <Content Include="Content\packages\bootstrap\dist\js\bootstrap.min.js" />
     <Content Include="Content\packages\bootstrap\dist\js\npm.js" />
+    <Content Include="Content\packages\font-awesome\font-awesome.css" />
     <Content Include="Content\packages\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
     <Content Include="Content\packages\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\packages\jquery-validation-unobtrusive\LICENSE.txt" />
@@ -428,6 +429,10 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\blog.guruin.net - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_workInProgress.cshtml" />
+    <Content Include="Views\BlogAdmin\Create.cshtml" />
+    <Content Include="Views\BlogAdmin\Delete.cshtml" />
+    <Content Include="Views\BlogAdmin\Edit.cshtml" />
+    <Content Include="Views\BlogAdmin\Index.cshtml" />
     <None Include="Web.Live.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

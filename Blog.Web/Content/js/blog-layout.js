@@ -129,7 +129,7 @@
         $("#comments-partial-view").html('');
         $("#comments-partial-view").html(data);
 
-        utils.HideProcessing();
+        utils.hideProcessing();
 
         window.alert('Thank you for your comment on the post.', 'Success');
 
@@ -145,7 +145,7 @@
     var OnErrorAddedComment = function (data) {
         $(".submit-error").addClass('field-validation-error');
         $(".submit-error").html('<span>' + data.responseJSON + '</span>');
-        utils.HideProcessing();
+        utils.hideProcessing();
     };
 
     var CheckCommentValidation = function (data) {
@@ -153,7 +153,7 @@
             $("#new-comment-content-custom-error").addClass('field-validation-error');
             $("#new-comment-content-custom-error").html('<span>' + data + '</span>');
 
-            utils.HideProcessing();
+            utils.hideProcessing();
 
             return null;
         }
@@ -177,7 +177,7 @@
 
     var AddNewComment = function () { // jshint ignore:line
 
-        utils.ShowProcessing('Adding your comment ...');
+        utils.showProcessing('Adding your comment ...');
 
         $("#new-comment-content-custom-error").removeClass('field-validation-error');
         $("#new-comment-content-custom-error").html('');
@@ -200,11 +200,11 @@
         }
     };
 
-    utils.Invoke(apiBaseUrl + '/GetArchives', '', 'GET', true, AddArchives);
+    utils.invoke(apiBaseUrl + '/GetArchives', '', 'GET', true, AddArchives);
 
-    utils.Invoke(apiBaseUrl + '/GetCategories', '', 'GET', true, AddCategories);
+    utils.invoke(apiBaseUrl + '/GetCategories', '', 'GET', true, AddCategories);
 
-    utils.Invoke(apiBaseUrl + '/GetTags', '', 'GET', true, AddTags);
+    utils.invoke(apiBaseUrl + '/GetTags', '', 'GET', true, AddTags);
 
     try
     {

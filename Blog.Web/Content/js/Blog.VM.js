@@ -34,21 +34,21 @@
 
         }).error(function (response) {
             window.console.log(response);
-            utils.HideProcessing();
+            utils.hideProcessing();
             window.alert('An error occured while retrieving posts. Please try again alater.', "Error");
         });
     };
 
     self.UpdatePosts = function (url) {
-        utils.ShowProcessing('Showing relevant posts ...');
+        utils.showProcessing('Showing relevant posts ...');
 
         apiClient.invoke(url).done(function (data) {
 
             self.ProcessResult(data);
 
-            utils.HideProcessing();
+            utils.hideProcessing();
         }).error(function () {
-            utils.HideProcessing();
+            utils.hideProcessing();
             window.alert('An error occured while retrieving posts. Please try again alater.', "Error");
         });
     };

@@ -1,7 +1,7 @@
 ﻿@model Blog.Web.Models.BlogViewModel
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -52,7 +52,7 @@
                         <a class="category selected-category" data-bind="attr: { href: SelectedCategoryHref, title: Category.Name }, text: Category.Name, visible: (Parent.Category().toLowerCase() == Category.Name.toLowerCase()), click: DeselectCategory"></a>
                     </span>
 
-                    <span data-bind="visible: (ModifiedOn != '')" style="font-size: 0.8em; float: right;padding-top: 2px">&nbsp;&nbsp;(Modified: <span data-bind="text: ModifiedOn"></span>)</span>
+                    @*<span data-bind="visible: (ModifiedOn != '')" style="font-size: 0.8em; float: right;padding-top: 2px">&nbsp;&nbsp;(Modified: <span data-bind="text: ModifiedOn"></span>)</span>*@
                     <span style="float: right">
                         Posted: <span data-bind="text: PostedOn"></span>
                     </span>

@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201702071532325_InitialCreate.Designer.cs">
       <DependentUpon>201702071532325_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702091943400_PostTitleNonNull.cs" />
+    <Compile Include="Migrations\201702091943400_PostTitleNonNull.Designer.cs">
+      <DependentUpon>201702091943400_PostTitleNonNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Archive.cs" />
     <Compile Include="Model\BadWords.cs" />
@@ -82,10 +86,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Context\InstallScript.sql" />
-    <Content Include="Context\Posts.sql" />
-    <Content Include="Context\Schema.sql" />
-    <Content Include="Context\UninstallScript.sql" />
+    <Content Include="Scripts\InstallScript.sql" />
+    <Content Include="Scripts\Posts.sql" />
+    <Content Include="Scripts\Schema.sql" />
+    <Content Include="Scripts\UninstallScript.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,6 +98,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702071532325_InitialCreate.resx">
       <DependentUpon>201702071532325_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091943400_PostTitleNonNull.resx">
+      <DependentUpon>201702091943400_PostTitleNonNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
