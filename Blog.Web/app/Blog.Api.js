@@ -1,6 +1,5 @@
-﻿/*global allPostsMvcViewModel */
-
-allPostsMvcViewModel.apiClient = (function (allPostsApiEndpoint) {
+﻿allPostsMvcViewModel.ApiClient = (function (allPostsApiEndpoint) {
+    "use strict";
 
 	var
     getAllPosts = function getAllPosts(slug, category, tag, cur, archive, searchTerm) {

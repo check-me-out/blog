@@ -9,6 +9,7 @@
   "validthis": true,
   "globals": {
     "window": false,
+    "document":  false,
     "jQuery": false,
     "$": false,
     "ko": false,
@@ -16,6 +17,8 @@
     "angular": false,
     "module": false,
     "require": false,
-    "XMLHttpRequest": false
+    "XMLHttpRequest": false,
+    "utils":  false,
+    "allPostsMvcViewModel":  false
   }
 }

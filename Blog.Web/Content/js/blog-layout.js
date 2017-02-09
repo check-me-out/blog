@@ -129,9 +129,9 @@
         $("#comments-partial-view").html('');
         $("#comments-partial-view").html(data);
 
-        //HideProcessing();
+        utils.HideProcessing();
 
-        alert('Thank you for your comment on the post.', 'Success');
+        window.alert('Thank you for your comment on the post.', 'Success');
 
         $("#new-comment-form").on("submit", function (event) {
             if ($("#new-comment-form").valid()) {
@@ -145,7 +145,7 @@
     var OnErrorAddedComment = function (data) {
         $(".submit-error").addClass('field-validation-error');
         $(".submit-error").html('<span>' + data.responseJSON + '</span>');
-        //HideProcessing();
+        utils.HideProcessing();
     };
 
     var CheckCommentValidation = function (data) {
@@ -153,7 +153,7 @@
             $("#new-comment-content-custom-error").addClass('field-validation-error');
             $("#new-comment-content-custom-error").html('<span>' + data + '</span>');
 
-            //HideProcessing();
+            utils.HideProcessing();
 
             return null;
         }
@@ -176,7 +176,8 @@
     };
 
     var AddNewComment = function () { // jshint ignore:line
-        //ShowProcessing('Adding your comment ...');
+
+        utils.ShowProcessing('Adding your comment ...');
 
         $("#new-comment-content-custom-error").removeClass('field-validation-error');
         $("#new-comment-content-custom-error").html('');

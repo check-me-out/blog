@@ -1,5 +1,6 @@
-﻿
-var BlogViewModel = function (apiClient, rootUrl) {
+﻿allPostsMvcViewModel.BlogViewModel = function (apiClient, rootUrl) {
+    "use strict";
+
     var self = this;
 
     // observable arrays are update binding elements upon array changes
@@ -18,8 +19,6 @@ var BlogViewModel = function (apiClient, rootUrl) {
 
     self.LoadPosts = function () {
 
-        //ShowProcessing('Loading posts ...');
-
         var cat = utils.getQsValue('category');
         cat = !cat ? '' : cat;
         var tag = utils.getQsValue('tag');
@@ -29,27 +28,28 @@ var BlogViewModel = function (apiClient, rootUrl) {
         var search = utils.getQsValue('searchTerm');
         search = !search ? '' : search;
 
-        apiClient.getAllPosts('', cat, tag, 0, archive, search).done(function (data) {
+        return apiClient.getAllPosts('', cat, tag, 0, archive, search).done(function (data) {
 
             self.ProcessResult(data);
 
         }).error(function (response) {
-            console.log(response);
-            //alert('An error occured while retrieving posts. Please try again alater.', "Error");
+            window.console.log(response);
+            utils.HideProcessing();
+            window.alert('An error occured while retrieving posts. Please try again alater.', "Error");
         });
     };
 
     self.UpdatePosts = function (url) {
-        //ShowProcessing('Showing relevant posts ...');
+        utils.ShowProcessing('Showing relevant posts ...');
 
         apiClient.invoke(url).done(function (data) {
 
             self.ProcessResult(data);
 
-            //HideProcessing();
+            utils.HideProcessing();
         }).error(function () {
-            alert('An error occured while retrieving posts. Please try again alater.', "Error");
-            //HideProcessing();
+            utils.HideProcessing();
+            window.alert('An error occured while retrieving posts. Please try again alater.', "Error");
         });
     };
 
@@ -62,9 +62,9 @@ var BlogViewModel = function (apiClient, rootUrl) {
         data.CurrPage = !data.CurrPage ? '' : data.CurrPage;
 
         if (data.Category) {
-            $("#blog-menu-categories ul li").each(function (e) {
+            $("#blog-menu-categories ul li").each(function () {
                 var cat = $(this).find('a').first().html();
-                if (cat && cat.toLowerCase() == data.Category.toLowerCase()) {
+                if (cat && cat.toLowerCase() === data.Category.toLowerCase()) {
                     $(this).find('a').first().addClass('highlight');
                     $("#blog-menu-categories button").html('<span class="button-text">' + cat + '</span> <span class="caret-holder"> <span class="caret"></span> </span>');
                 }
@@ -74,9 +74,9 @@ var BlogViewModel = function (apiClient, rootUrl) {
             });
         }
         else {
-            $("#blog-menu-categories ul li").each(function (e) {
+            $("#blog-menu-categories ul li").each(function () {
                 var cat = $(this).find('a').first().html();
-                if (cat == 'All Categories') {
+                if (cat === 'All Categories') {
                     $(this).find('a').first().addClass('highlight');
                     $("#blog-menu-categories button").html('<span class="button-text">' + cat + '</span> <span class="caret-holder"> <span class="caret"></span> </span>');
                 }
@@ -86,9 +86,9 @@ var BlogViewModel = function (apiClient, rootUrl) {
             });
         }
 
-        $("#blog-menu-tags .tag-link-contents a").each(function (e) {
+        $("#blog-menu-tags .tag-link-contents a").each(function () {
             var tag = $(this).html();
-            if (tag && tag.toLowerCase() == data.Tag.toLowerCase()) {
+            if (tag && tag.toLowerCase() === data.Tag.toLowerCase()) {
                 $(this).addClass('selected');
             }
             else {
@@ -100,7 +100,7 @@ var BlogViewModel = function (apiClient, rootUrl) {
             $('input[name=\'searchTerm\']').val(data.SearchTerm);
             var times = '<div class="search-button input-group-addon close-search"><i class="fa fa-times"></i></div>';
             $(times).insertAfter('input[name=\'searchTerm\']');
-            $(".close-search").click(function (e) {
+            $(".close-search").click(function () {
                 $('input[name=\'searchTerm\']').val('');
                 $('form').submit();
             });
@@ -133,7 +133,7 @@ var BlogViewModel = function (apiClient, rootUrl) {
 
                                     return tag;
                                 })
-                                .OrderBy(function (tag) { return tag.Name })
+                                .OrderBy(function (tag) { return tag.Name; })
                                 .ToArray();
 
                     var strPostedOn = post.PostedOn.toString().replace('T', ' ');
@@ -142,7 +142,7 @@ var BlogViewModel = function (apiClient, rootUrl) {
                     var formattedModifiedOn = '';
                     if (post.ModifiedOn != null) {
                         var strModifiedOn = post.ModifiedOn.toString().replace('T', ' ');
-                        var formattedModifiedOn = $.datepicker.formatDate('MM dd, yy', $.datepicker.parseDate("yy-mm-dd", strModifiedOn));
+                        formattedModifiedOn = $.datepicker.formatDate('MM dd, yy', $.datepicker.parseDate("yy-mm-dd", strModifiedOn));
                     }
 
                     post = {
@@ -211,10 +211,10 @@ var BlogViewModel = function (apiClient, rootUrl) {
     self.GoToPrevPage = function () {
         var href = self.PrevPageUrl().replace('Home/AllPosts', 'api/GetAllPosts');
         self.UpdatePosts(href);
-    }
+    };
 
     self.GoToNextPage = function () {
         var href = self.NextPageUrl().replace('Home/AllPosts', 'api/GetAllPosts');
         self.UpdatePosts(href);
-    }
+    };
 };

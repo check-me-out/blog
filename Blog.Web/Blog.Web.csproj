@@ -219,6 +219,7 @@
     <Content Include="app\Blog.Controller.js" />
     <Content Include="app\Blog.VM.js" />
     <Content Include="app\app-bundle.min.js" />
+    <Content Include="Content\images\gif-load.gif" />
     <Content Include="Content\js\blog-layout.js" />
     <Content Include="Content\bundles\third-party-libs.min.js" />
     <Content Include="Content\images\all-logos-sprite.png" />
@@ -426,6 +427,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\blog.guruin.net - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_workInProgress.cshtml" />
     <None Include="Web.Live.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,6 +1,5 @@
-﻿/* JSHint globals utils */
-var utils = {};
-utils = (function () {
+﻿/* exported utils */
+var utils = (function () { // jshint ignore: line
     "use strict";
 
     /* Get QueryString parameter. */
@@ -59,8 +58,23 @@ utils = (function () {
         });
     }
 
+    function ShowProcessing(message) {
+        if (message) {
+            $("#work-in-progress div").html(message);
+        }
+
+        $("#work-in-progress").show();
+    }
+
+    function HideProcessing() {
+        $("#work-in-progress div").html('');
+        $("#work-in-progress").hide();
+    }
+
     return {
         getQsValue: getQsValue,
-        Invoke: Invoke
-    }
+        Invoke: Invoke,
+        ShowProcessing: ShowProcessing,
+        HideProcessing: HideProcessing
+    };
 }());

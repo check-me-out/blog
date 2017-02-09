@@ -552,3 +552,27 @@ textarea {
   padding-top: 8px;
   font-size: 0.8em;
 }
+#work-in-progress {
+  display: none;
+  position: fixed;
+  top: 33%;
+  left: 42%;
+  z-index: 1100;
+}
+#work-in-progress span {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+#work-in-progress i {
+  color: #eee;
+}
+#work-in-progress div {
+  color: #333;
+  margin-left: -75px;
+  font-weight: bold;
+}

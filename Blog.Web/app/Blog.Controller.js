@@ -1,13 +1,13 @@
 ﻿(function init() {
     "use strict";
 
-    //ShowProcessing('Loading posts ...');
+    utils.ShowProcessing('Waking up GoDaddy\'s DB Server ^_^');
 
-    var blogVm = new BlogViewModel(allPostsMvcViewModel.apiClient, allPostsMvcViewModel.RootUrl);
+    var blogVm = new allPostsMvcViewModel.BlogViewModel(allPostsMvcViewModel.ApiClient, allPostsMvcViewModel.RootUrl);
     $.when(blogVm.LoadPosts())
         .done(function() {
-            setTimeout(function () { ko.applyBindings(blogVm, document.getElementById("all-posts-section")); }, 500);
-            setTimeout(function() { /*HideProcessing();*/ }, 1000);
+            ko.applyBindings(blogVm, document.getElementById("all-posts-section"));
+            utils.HideProcessing();
         });
 
 }());

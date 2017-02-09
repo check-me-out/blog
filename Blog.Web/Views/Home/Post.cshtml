@@ -130,7 +130,9 @@
         var rootUrl = "@Url.Action("AllPosts", "Home", new { id = "" })";
         allPostsMvcViewModel = {
             RootUrl: rootUrl,
-            AllPostsApiEndpoint: rootUrl + "api"
+            AllPostsApiEndpoint: rootUrl + "api",
+            ApiClient: null,
+            BlogViewModel: null
     };
     }());
 </script>
