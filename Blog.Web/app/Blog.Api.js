@@ -1,9 +1,6 @@
-﻿/*global allPostsApi, allPostsMvcViewModel */
+﻿/*global allPostsMvcViewModel */
 
-var allPostsApi = allPostsApi || {};
-var allPostsMvcViewModel = allPostsMvcViewModel || null;
-
-allPostsApi.client = (function (allPostsApiEndpoint) {
+allPostsMvcViewModel.apiClient = (function (allPostsApiEndpoint) {
 
 	var
     getAllPosts = function getAllPosts(slug, category, tag, cur, archive, searchTerm) {

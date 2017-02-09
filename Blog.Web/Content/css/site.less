@@ -24,9 +24,9 @@
 @menu-hover-color: #fff;
 
 @dark-grey:                     #37424d;
-@main-theme-color:              darken(@brand-success, 5%);
+@main-theme-color:              darken(@color-2-bg, 5%);
 
-@blog-theme-color:              lighten(@dark-grey, 5%);
+@blog-theme-color:              @navbar-color-bg;
 @blog-text-color:               @color-primary-bg;
 @blog-category-bg:              #999;
 @blog-category-highlight:       @main-theme-color;
@@ -201,20 +201,6 @@ main {
     }*/
 }
 
-.breadcrumbs-container {
-    background-color: #e5e5e5;
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 1100;
-}
-
-.breadcrumb {
-    background-color: #e5e5e5;
-    padding-bottom: 5px;
-    margin-bottom: 0;
-}
-
 .page-banner-section {
     display: block;
     width: 100%;
@@ -254,9 +240,12 @@ main {
     padding-top: 100px;
 
     h1, h2, h3, h4, h5, h6 {
+        padding: 20px;
         margin: auto;
         text-align: center;
-        width: 50%;
+        @media(min-width:768px) {
+            width: 50%;
+        }
     }
 }
 
@@ -424,8 +413,7 @@ textarea {
 
 .blog-menu {
     color: #eee;
-    background-color: @blog-theme-color;
-    //background: #004486 url('../../../Images/homepage-banner-action.png') center no-repeat;
+    background: linear-gradient(to top, darken(@blog-theme-color, 5%), @blog-theme-color, darken(@blog-theme-color, 5%), );
     border-radius: 5px;
     margin-top: 20px;
     padding: 20px;
@@ -465,6 +453,20 @@ textarea {
         float: right;
         padding: 5px 15px;
         border-left: 1px solid #ccc;
+    }
+
+    .dropdown-menu {
+        background: darkslategrey;
+
+        &:hover a, &:focus a {
+            background: darkslategrey !important;
+        }
+
+        @media(min-width:768px) {
+            &:before {
+                border-bottom-color: darkslategrey;
+            }
+        }
     }
 
     ul li a {

@@ -18,7 +18,7 @@ namespace Blog.Web
             routes.MapRoute(
                 "blog-route",
                 "Blog/{id}/{slug}",
-                new { controller = "Home", action = "Post", id = UrlParameter.Optional, slug = UrlParameter.Optional }
+                new { controller = "Home", action = "Post", slug = UrlParameter.Optional }
             );
 
             routes.MapRoute(

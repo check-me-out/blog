@@ -1,7 +1,7 @@
 ﻿@model Blog.Web.Models.BlogViewModel
 
 @{
-    ViewBag.Title = "";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -102,5 +102,13 @@
 </section>
 
 <script type="text/javascript">
-        var allPostsMvcViewModel = { AllPostsApiEndpoint: @Url.Action("AllPosts", "Home") + "@Model.AllPostsApiEndpoint" };
+    var allPostsMvcViewModel = {};
+    (function() {
+        var rootUrl = "@Url.Action("AllPosts", "Home", new { id = "" })";
+        allPostsMvcViewModel = {
+            RootUrl: rootUrl,
+            AllPostsApiEndpoint: rootUrl + "@Model.AllPostsApiEndpoint",
+            apiClient: null
+    };
+    }());
 </script>

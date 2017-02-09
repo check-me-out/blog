@@ -10,32 +10,22 @@
     "inputFiles": [
       "Content/js/site.js",
       "Content/js/code-styler.js",
-      "Content/js/utils.js"
+      "Content/js/utils.js",
+      "Content/js/blog-layout.js"
     ]
   },
   {
     "outputFileName": "app/app-bundle.min.js",
     "inputFiles": [
-      "blog-layout.js",
-      "app/AllPosts.VM.js",
-      "app/AllPosts.Api.js",
-      "app/AllPosts.Controller.js"
-    ]
-  },
-  {
-    "outputFileName": "Content/bundles/third-party-libs.min.css",
-    "inputFiles": [
-      "Content/packages/angular-loading-bar/build/loading-bar.css",
-      "Content/packages/toaster/toaster.css"
+      "app/Blog.Api.js",
+      "app/Blog.VM.js",
+      "app/Blog.Controller.js"
     ]
   },
   {
     "outputFileName": "Content/bundles/third-party-libs.min.js",
     "inputFiles": [
-      "Content/packages/knockout/dist/knockout.js",
-      "Content/packages/angular-animate/angular-animate.js",
-      "Content/packages/angular-loading-bar/build/loading-bar.js",
-      "Content/packages/toaster/toaster.js"
+      "Content/packages/knockout/dist/knockout.js"
     ]
   }
 ]

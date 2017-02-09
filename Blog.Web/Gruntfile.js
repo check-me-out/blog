@@ -13,7 +13,6 @@ module.exports = function (grunt) {
     var siteCssBundle = getBundle("Content/css/site.min.css");
     var siteJsBundle = getBundle("Content/js/site.min.js");
     var appBundle = getBundle("app/app-bundle.min.js");
-    var vendorCssBundle = getBundle("Content/bundles/third-party-libs.min.css");
     var vendorJsBundle = getBundle("Content/bundles/third-party-libs.min.js");
 
     var toJSON = function (key, val) {
@@ -29,7 +28,7 @@ module.exports = function (grunt) {
         banner: '/**\n * <%= pkg.title || pkg.name %> - v<%= pkg.version %>\n' +
                 '<%= pkg.homepage ? " * " + pkg.homepage : "" %>\n */\n',
 
-        clean: [siteCssBundle.inputFiles[0], siteCssBundle.outputFileName, siteJsBundle.outputFileName, vendorCssBundle.outputFileName, vendorJsBundle.outputFileName],
+        clean: [siteCssBundle.inputFiles[0], siteCssBundle.outputFileName, siteJsBundle.outputFileName, vendorJsBundle.outputFileName],
 
         less: {
             siteLess: {
@@ -48,12 +47,6 @@ module.exports = function (grunt) {
                     shorthandCompacting: true
                 },
                 files: toJSON(siteCssBundle.outputFileName, siteCssBundle.inputFiles)
-            },
-            vendorCss: {
-                options: {
-                    shorthandCompacting: true
-                },
-                files: toJSON(vendorCssBundle.outputFileName, vendorCssBundle.inputFiles),
             }
         },
 

@@ -2,13 +2,11 @@
   "name": "blog-client-package-manager",
   "private": true,
   "dependencies": {
-    "angular-loading-bar": "^0.9.0",
     "bootstrap": "3.3.7",
     "jquery": "2.2.0",
     "jquery-validation": "1.14.0",
     "jquery-validation-unobtrusive": "3.2.6",
     "knockout": "^3.4.1",
-    "moment": "^2.13.0",
-    "toaster": "^0.4.14"
+    "moment": "^2.13.0"
   }
 }

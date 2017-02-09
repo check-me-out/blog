@@ -1,9 +1,5 @@
-﻿// tell JSLint to suppress errors relating to objects declared elsewhere. Not strictly essential if you don't use JSLint
-/*global allPostsApi, summaries*/
-
-/// <reference path="~/app/AllPosts.Api.js"/>
-
-var AllPostsViewModel = function () {
+﻿
+var BlogViewModel = function (apiClient, rootUrl) {
     var self = this;
 
     // observable arrays are update binding elements upon array changes
@@ -24,35 +20,36 @@ var AllPostsViewModel = function () {
 
         //ShowProcessing('Loading posts ...');
 
-        var cat = getQsValue('category');
+        var cat = utils.getQsValue('category');
         cat = !cat ? '' : cat;
-        var tag = getQsValue('tag');
+        var tag = utils.getQsValue('tag');
         tag = !tag ? '' : tag;
-        var archive = getQsValue('archive');
+        var archive = utils.getQsValue('archive');
         archive = !archive ? '' : archive;
-        var search = getQsValue('searchTerm');
+        var search = utils.getQsValue('searchTerm');
         search = !search ? '' : search;
 
-        allPostsApi.client.getAllPosts('', cat, tag, 0, archive, search).done(function (data) {
+        apiClient.getAllPosts('', cat, tag, 0, archive, search).done(function (data) {
 
             self.ProcessResult(data);
 
-        }).error(function () {
-            toaster.error('An error occured while retrieving posts. Please try again alater.', "Error");
+        }).error(function (response) {
+            console.log(response);
+            //alert('An error occured while retrieving posts. Please try again alater.', "Error");
         });
     };
 
     self.UpdatePosts = function (url) {
-        ShowProcessing('Showing relevant posts ...');
+        //ShowProcessing('Showing relevant posts ...');
 
-        allPostsApi.client.invoke(url).done(function (data) {
+        apiClient.invoke(url).done(function (data) {
 
             self.ProcessResult(data);
 
-            HideProcessing();
+            //HideProcessing();
         }).error(function () {
-            alertify('An error occured while retrieving posts. Please try again alater.', AlertSeverity.ERROR);
-            HideProcessing();
+            alert('An error occured while retrieving posts. Please try again alater.', "Error");
+            //HideProcessing();
         });
     };
 
@@ -122,14 +119,14 @@ var AllPostsViewModel = function () {
                                         UrlSlug: tag.UrlSlug,
                                         Description: tag.Description,
                                         Class: tag.Class,
-                                        TagHref: '/Blog/AllPosts/' + tag.UrlSlug + '?tag=' + tag.Name + '&category=' + data.Category,
+                                        TagHref: rootUrl + 'Home/AllPosts/' + tag.UrlSlug + '?tag=' + tag.Name + '&category=' + data.Category,
                                         SelectTag: function () {
-                                            var href = this.TagHref.replace('/Blog/AllPosts', '/api/GetAllPosts');
+                                            var href = this.TagHref.replace('Home/AllPosts', 'api/GetAllPosts');
                                             self.UpdatePosts(href);
                                         },
-                                        SelectedTagHref: '/Blog/AllPosts?category=' + data.Category,
+                                        SelectedTagHref: rootUrl + 'Home/AllPosts?category=' + data.Category,
                                         DeselectTag: function () {
-                                            var href = this.SelectedTagHref.replace('/Blog/AllPosts', '/api/GetAllPosts');
+                                            var href = this.SelectedTagHref.replace('Home/AllPosts', 'api/GetAllPosts');
                                             self.UpdatePosts(href);
                                         }
                                     };
@@ -165,15 +162,15 @@ var AllPostsViewModel = function () {
                             Description: post.Category.Description,
                         },
                         Tags: window.ko.observableArray(tagsArray),
-                        PostHref: '/Blog/' + post.Id + '/' + post.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.CurrPage + '&searchTerm=' + data.SearchTerm,
-                        CategoryHref: '/Blog/AllPosts/' + post.Category.UrlSlug + '?category=' + post.Category.Name + '&tag=' + data.Tag,
+                        PostHref: rootUrl + 'Blog/' + post.Id + '/' + post.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.CurrPage + '&searchTerm=' + data.SearchTerm,
+                        CategoryHref: rootUrl + 'Home/AllPosts/' + post.Category.UrlSlug + '?category=' + post.Category.Name + '&tag=' + data.Tag,
                         SelectCategory: function () {
-                            var href = this.CategoryHref.replace('/Blog/AllPosts', '/api/GetAllPosts');
+                            var href = this.CategoryHref.replace('Home/AllPosts', 'api/GetAllPosts');
                             self.UpdatePosts(href);
                         },
-                        SelectedCategoryHref: '/Blog/AllPosts?tag=' + data.Tag,
+                        SelectedCategoryHref: rootUrl + 'Home/AllPosts?tag=' + data.Tag,
                         DeselectCategory: function () {
-                            var href = this.SelectedCategoryHref.replace('/Blog/AllPosts', '/api/GetAllPosts');
+                            var href = this.SelectedCategoryHref.replace('Home/AllPosts', 'api/GetAllPosts');
                             self.UpdatePosts(href);
                         }
                     };
@@ -195,14 +192,14 @@ var AllPostsViewModel = function () {
         self.CurrPage(data.CurrPage);
 
         if (data.PrevPage || data.PrevPage === 0) {
-            self.PrevPageUrl('/Blog/AllPosts/' + data.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.PrevPage + '&searchTerm=' + data.SearchTerm);
+            self.PrevPageUrl(rootUrl + 'Home/AllPosts/' + data.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.PrevPage + '&searchTerm=' + data.SearchTerm);
         }
         else {
             self.PrevPageUrl('');
         }
 
         if (data.NextPage) {
-            self.NextPageUrl('/Blog/AllPosts/' + data.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.NextPage + '&searchTerm=' + data.SearchTerm);
+            self.NextPageUrl(rootUrl + 'Home/AllPosts/' + data.UrlSlug + '?category=' + data.Category + '&tag=' + data.Tag + '&cur=' + data.NextPage + '&searchTerm=' + data.SearchTerm);
         }
         else {
             self.NextPageUrl('');
@@ -212,12 +209,12 @@ var AllPostsViewModel = function () {
     };
 
     self.GoToPrevPage = function () {
-        var href = self.PrevPageUrl().replace('/Blog/AllPosts', '/api/GetAllPosts');
+        var href = self.PrevPageUrl().replace('Home/AllPosts', 'api/GetAllPosts');
         self.UpdatePosts(href);
     }
 
     self.GoToNextPage = function () {
-        var href = self.NextPageUrl().replace('/Blog/AllPosts', '/api/GetAllPosts');
+        var href = self.NextPageUrl().replace('Home/AllPosts', 'api/GetAllPosts');
         self.UpdatePosts(href);
     }
 };

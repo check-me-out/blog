@@ -36,6 +36,7 @@ namespace Blog.Web.Controllers
             var errorMessage = (string)Session["JSON_ERROR_MESSAGE"];
             Session["JSON_ERROR_MESSAGE"] = null;
 
+            throw new Exception(errorMessage);
             return new JsonResult() { Data = errorMessage, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }

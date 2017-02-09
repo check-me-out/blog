@@ -21,7 +21,7 @@
     @RenderSection("pageStyle", required: false)
 </head>
 <body>
-    @{ var rootUrl = Url.Action("Index", "Home"); }
+    @{ var rootUrl = Url.Action("AllPosts", "Home"); }
     <script type="text/javascript">var rooturl = '@rootUrl';</script>
 
     <div id="bootstrap-css-cdn-fallback" class="hidden"></div>
@@ -39,14 +39,6 @@
                     </nav>
                 </div>
             </div>
-
-            <section class="breadcrumbs-container">
-                <div class="container-fixed">
-                    <div class="container">
-                        @RenderSection("breadcrumbs", required: false)
-                    </div>
-                </div>
-            </section>
 
             <div class="container-fixed">
                 <div class="page-banner gradient-background color-primary">
@@ -97,23 +89,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script>(window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) || document.write('<script src="' + rooturl + 'Content/packages/bootstrap/dist/js/bootstrap.min.js"><\/script>')</script>
 
-    @if (HttpContext.Current.IsDebuggingEnabled)
-    {
-        @*Non-minified version very helpful in identifying Angular errors.*@
-        <script src="~/Content/packages/angular/angular.js"></script>
-    }
-    else
-    {
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" integrity="sha256-3SrLjPeRPa1ofM280r+OMcUjJZKLWJHr6SRtRu3dRb0=" crossorigin="anonymous"></script>
-        <script> window.angular || document.write('<script src="' + rooturl + 'Content/packages/angular/angular.min.js"><\/script>')</script>
-    }
-
     <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.min.js" integrity="sha384-D036DCQcFKVjaInZT7J2WWKtVBAh1JoTqn/yu7nhkc+dsvSFe1w8TsJkqEqc6a3Y" crossorigin="anonymous"></script>
 
     <!-- BUNDLES: BundleConfig.cs bundle (which is dynamic content) is not used due to load on the web server when compressing dynamic content. -->
     <!-- Instead, a JS task runner (Grunt) is used to generate build-time static content bundles to take advantage of static file compression &caching by IIS. -->
-    <link rel="stylesheet" href="~/Content/bundles/third-party-libs.min.css" />
     <script src="~/Content/bundles/third-party-libs.min.js"></script>
 
     <script src="~/Content/js/site.min.js"></script>
