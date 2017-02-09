@@ -43,11 +43,11 @@
             @{ errorCodeMeaning = !string.IsNullOrWhiteSpace(errorCodeMeaning) ? "(" + errorCodeMeaning + ")" : string.Empty; }
             <li>@Response.StatusCode @errorCodeMeaning</li>
         </ul>
-                }
+    }
 
-                if (!string.IsNullOrWhiteSpace(Model.Exception.StackTrace))
-                {
-                    <h5>Error Stack:</h5>
-                    <pre style="color: red; background: #fff0f0; max-height: 500px; overflow: auto">@Model.Exception.StackTrace</pre>
-                    }
-                }
+    if (!string.IsNullOrWhiteSpace(Model.Exception.StackTrace))
+    {
+        <h5>Error Stack:</h5>
+        <pre style="color: red; background: #fff0f0; max-height: 500px; overflow: auto">@Model.Exception.StackTrace</pre>
+    }
+}
