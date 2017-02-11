@@ -5,6 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Blog.Web.Models;
+using Microsoft.Owin.Security.Google;
 
 namespace Blog.Web
 {
@@ -53,15 +54,15 @@ namespace Blog.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "649796122037977",
+               appSecret: "c5d2dc02b76e4a7b9c483a393e54a467");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "944143220333-unqnpisd91ttl3vi6kpsn5dd4cnc5b3i.apps.googleusercontent.com",
+                ClientSecret = "VrIyR8uOCoxUDeE_3k7nbrVV"
+            });
         }
     }
 }

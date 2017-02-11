@@ -22,7 +22,20 @@ namespace Blog.Web.Controllers
         {
             Response.TrySkipIisCustomErrors = true;
 
+            Response.StatusCode = 404;
+
             var error = new HandleErrorInfo(new Exception("Invalid URL - " + url), "UNKNOWN", "UNKNOWN");
+
+            return View("Index", error);
+        }
+
+        public ActionResult AccessDenied(string url)
+        {
+            Response.TrySkipIisCustomErrors = true;
+
+            Response.StatusCode = 403;
+
+            var error = new HandleErrorInfo(new Exception("Sorry, you're not authorized to perform this operation."), "UNKNOWN", "UNKNOWN");
 
             return View("Index", error);
         }
