@@ -23,10 +23,7 @@
         <th>
             @Html.DisplayNameFor(model => model.UrlSlug)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Published)
-        </th>
-        <th>
+        <th style="width: 120px">
             @Html.DisplayNameFor(model => model.PostedOn)
         </th>
         <th style="width: 80px">Actions</th>
@@ -41,10 +38,7 @@
             @Html.DisplayFor(modelItem => item.UrlSlug)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Published)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostedOn)
+            @item.PostedOn.ToString("dd-MM-yyyy")
         </td>
         <td>
             <a href="@Url.Action("Edit", "BlogAdmin", new { id = item.Id })" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>

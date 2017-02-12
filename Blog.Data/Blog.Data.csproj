@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201702091943400_PostTitleNonNull.Designer.cs">
       <DependentUpon>201702091943400_PostTitleNonNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702121406218_CategoryId.cs" />
+    <Compile Include="Migrations\201702121406218_CategoryId.Designer.cs">
+      <DependentUpon>201702121406218_CategoryId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Archive.cs" />
     <Compile Include="Model\BadWords.cs" />
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702091943400_PostTitleNonNull.resx">
       <DependentUpon>201702091943400_PostTitleNonNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702121406218_CategoryId.resx">
+      <DependentUpon>201702121406218_CategoryId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

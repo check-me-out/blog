@@ -58,6 +58,7 @@ namespace Blog.Web.Controllers.Api
                 IEnumerable<Post> list = _db.Posts
                     .Include("Category")
                     .Include("Tags")
+                    .Where(p => p.Published == true)
                     .Where(
                         p =>
                             category == null || category == "" ||

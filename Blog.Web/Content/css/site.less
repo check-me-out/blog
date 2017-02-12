@@ -23,21 +23,22 @@
 @menu-color: #ccc;
 @menu-hover-color: #fff;
 
-@dark-grey:                     #37424d;
-@main-theme-color:              darken(@color-2-bg, 5%);
-
-@blog-theme-color:              @navbar-color-bg;
+@grey:                          #999;
+@blog-theme-color:              darken(@color-2-bg, 5%);
+@blog-menu-bg:                  @navbar-color-bg;
+@dropdown-menu-bg:              darkslategrey;
+@dropdown-menu-bg-highlight:    @blog-theme-color;
 @blog-text-color:               @color-primary-bg;
-@blog-category-bg:              #999;
-@blog-category-highlight:       @main-theme-color;
-@blog-tag-bg:                   #999;
-@blog-tag-highlight:            @main-theme-color;
+@blog-category-bg:              @grey;
+@blog-category-highlight:       @blog-theme-color;
+@blog-tag-bg:                   @grey;
+@blog-tag-highlight:            @blog-theme-color;
 
 @error-color:                   #d00;
 
 
 .btn {
-    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
     border-bottom-width: 3px;
     border-right-width: 2px;
 }
@@ -107,7 +108,7 @@ header {
 }
 
 nav.navbar {
-    background: linear-gradient(to top, @navbar-color-bg, darken(@navbar-color-bg, 5%), @navbar-color-bg);
+    background: linear-gradient(to bottom, @navbar-color-bg, darken(@navbar-color-bg, 5%), @navbar-color-bg);
     border-color: @navbar-border-color;
     margin: auto;
     border-width: 1px;
@@ -185,7 +186,7 @@ nav.navbar {
     -webkit-border-radius: 5px 5px !important;
     border-radius: 5px 5px !important;
     color: @menu-color;
-    background: linear-gradient(to top, @menu-bg, darken(@menu-bg, 5%), @menu-bg);
+    background: linear-gradient(to bottom, @menu-bg, darken(@menu-bg, 5%), @menu-bg);
     border: 1px solid @navbar-border-color;
     border-top-color: @menu-bg;
     -webkit-box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
@@ -239,11 +240,11 @@ main {
     right: 0;
     margin-top: 0;
 
-    background: -moz-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-    background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-    background: -o-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-    background: -ms-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+    background: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+    background: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+    background: -o-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+    background: -ms-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
 
     .navbar-placeholder {
         position: fixed;
@@ -296,35 +297,35 @@ main {
                 -moz-linear-gradient(-74deg, transparent 73%, rgba(255, 255, 255, 0.13) 15%),
                 -moz-linear-gradient(-74deg, transparent 67%, rgba(255, 255, 255, 0.09) 15%),
                 -moz-linear-gradient(-74deg, transparent 61%, rgba(255, 255, 255, 0.04) 15%),
-                -moz-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+                -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
     background: -webkit-linear-gradient(-74deg, transparent 91%, rgba(255, 255, 255, 0.25) 20%),
                 -webkit-linear-gradient(-74deg, transparent 85%, rgba(255, 255, 255, 0.21) 15%),
                 -webkit-linear-gradient(-74deg, transparent 79%, rgba(255, 255, 255, 0.17) 15%),
                 -webkit-linear-gradient(-74deg, transparent 73%, rgba(255, 255, 255, 0.13) 15%),
                 -webkit-linear-gradient(-74deg, transparent 67%, rgba(255, 255, 255, 0.09) 15%),
                 -webkit-linear-gradient(-74deg, transparent 61%, rgba(255, 255, 255, 0.04) 15%),
-                -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+                -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
     background: -o-linear-gradient(-74deg, transparent 91%, rgba(255, 255, 255, 0.25) 20%),
                 -o-linear-gradient(-74deg, transparent 85%, rgba(255, 255, 255, 0.21) 15%),
                 -o-linear-gradient(-74deg, transparent 79%, rgba(255, 255, 255, 0.17) 15%),
                 -o-linear-gradient(-74deg, transparent 73%, rgba(255, 255, 255, 0.13) 15%),
                 -o-linear-gradient(-74deg, transparent 67%, rgba(255, 255, 255, 0.09) 15%),
                 -o-linear-gradient(-74deg, transparent 61%, rgba(255, 255, 255, 0.04) 15%),
-                -o-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+                -o-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
     background: -ms-linear-gradient(-74deg, transparent 91%, rgba(255, 255, 255, 0.25) 20%),
                 -ms-linear-gradient(-74deg, transparent 85%, rgba(255, 255, 255, 0.21) 15%),
                 -ms-linear-gradient(-74deg, transparent 79%, rgba(255, 255, 255, 0.17) 15%),
                 -ms-linear-gradient(-74deg, transparent 73%, rgba(255, 255, 255, 0.13) 15%),
                 -ms-linear-gradient(-74deg, transparent 67%, rgba(255, 255, 255, 0.09) 15%),
                 -ms-linear-gradient(-74deg, transparent 61%, rgba(255, 255, 255, 0.04) 15%),
-                -ms-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+                -ms-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
     background: linear-gradient(-74deg, transparent 91%, rgba(255, 255, 255, 0.25) 20%),
                 linear-gradient(-74deg, transparent 85%, rgba(255, 255, 255, 0.21) 15%),
                 linear-gradient(-74deg, transparent 79%, rgba(255, 255, 255, 0.17) 15%),
                 linear-gradient(-74deg, transparent 73%, rgba(255, 255, 255, 0.13) 15%),
                 linear-gradient(-74deg, transparent 67%, rgba(255, 255, 255, 0.09) 15%),
                 linear-gradient(-74deg, transparent 61%, rgba(255, 255, 255, 0.04) 15%),
-                linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
 
     /*background: url("images/teal-gradient-bg.png") repeat-x;
     background-size: 100%;*/
@@ -334,11 +335,11 @@ main {
 
 @media(max-width:767px) {
     .gradient-background {
-        background: -moz-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-        background: -webkit-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-        background: -o-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-        background: -ms-linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
-        background: linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+        background: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+        background: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+        background: -o-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+        background: -ms-linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.3) 100%);
     }
 }
 
@@ -453,7 +454,7 @@ textarea {
 
 .blog-menu {
     color: #eee;
-    background: linear-gradient(to top, darken(@blog-theme-color, 5%), @blog-theme-color, darken(@blog-theme-color, 5%), );
+    background: linear-gradient(to bottom, darken(@blog-menu-bg, 5%), @blog-menu-bg, darken(@blog-menu-bg, 5%));
     border-radius: 5px;
     margin-top: 20px;
     padding: 20px;
@@ -464,7 +465,7 @@ textarea {
 }
 
 .highlight {
-    color: #eee !important;
+    color: #fff !important;
     background-color: @blog-category-highlight;
 }
 
@@ -496,25 +497,27 @@ textarea {
     }
 
     .dropdown-menu {
-        background: darkslategrey;
-
-        &:hover a, &:focus a {
-            background: darkslategrey !important;
-        }
+        background: @dropdown-menu-bg;
 
         @media(min-width:768px) {
             &:before {
-                border-bottom-color: darkslategrey;
+                border-bottom-color: @dropdown-menu-bg;
             }
         }
     }
 
-    ul li a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-
+    ul li {
         &:hover {
             .highlight;
+        }
+
+        a {
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            &:hover {
+                .highlight;
+            }
         }
     }
 }
@@ -747,8 +750,8 @@ textarea {
 #work-in-progress {
     display: none;
     position: fixed; 
-    top: 42%; 
-    left: 42%; 
+    top: 48%; 
+    left: 48%; 
     z-index: 1200;
 
     span {
