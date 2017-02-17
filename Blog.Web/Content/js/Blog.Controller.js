@@ -9,5 +9,4 @@
             ko.applyBindings(blogVm, document.getElementById("all-posts-section"));
             utils.hideProcessing();
         });
-
 }());
