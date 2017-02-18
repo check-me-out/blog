@@ -8,5 +8,6 @@ Blog.Web/obj/*
 Blog.Web/bin/*
 Blog.Web/Properties/PublishProfiles/*
 Blog.Web/node_modules/*
+Blog.Web/Web.Live.config
 packages/*
 .vs/*
