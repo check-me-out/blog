@@ -27,6 +27,8 @@ namespace Blog.Data.Model
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
         public DateTime PostedOn { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ModifiedOn { get; set; }
 
         public int CategoryId { get; set; }
