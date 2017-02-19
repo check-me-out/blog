@@ -2,7 +2,9 @@ module.exports = function (grunt) {
     "use strict";
 
     grunt.registerTask('default', ['jshint', 'build']);
-    grunt.registerTask('build', ['clean', 'less', 'cssmin', 'uglify']);
+    grunt.registerTask('build', ['clean', 'pack-css', 'pack-js']);
+    grunt.registerTask('pack-css', ['less', 'cssmin']);
+    grunt.registerTask('pack-js', ['uglify']);
 
     var bundleconfig = grunt.file.readJSON('bundleconfig.json');
     var getBundle = function (name) {
