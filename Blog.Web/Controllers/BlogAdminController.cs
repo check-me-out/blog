@@ -85,6 +85,7 @@ namespace Blog.Web.Controllers
 
             ViewBag.AvailableCategories = GetAailableCategories();
 
+            post.ModifiedOn = System.DateTime.Now;
             post.NewCategory = post.Category.Name;
             _db.Entry(post).Collection("Tags").Load();
             post.NewTags = string.Join(", ", post.Tags.Select(s => s.Name).OrderBy(o => o));
