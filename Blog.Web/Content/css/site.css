@@ -66,6 +66,7 @@ header {
   padding: 0 3px;
 }
 nav.navbar {
+  background-color: #0f6898;
   background: linear-gradient(to bottom, #0f6898, #0d5881, #0f6898);
   border-color: #0a486a;
   margin: auto;
@@ -130,6 +131,7 @@ nav.navbar {
   -webkit-border-radius: 5px 5px !important;
   border-radius: 5px 5px !important;
   color: #ccc;
+  background-color: #0f6898;
   background: linear-gradient(to bottom, #0f6898, #0d5881, #0f6898);
   border: 1px solid #0a486a;
   border-top-color: #0f6898;
@@ -342,11 +344,13 @@ footer {
 }
 .carousel-control.left {
   background: none;
+  filter: 0;
   /*border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;*/
 }
 .carousel-control.right {
   background: none;
+  filter: 0;
   /*border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;*/
 }

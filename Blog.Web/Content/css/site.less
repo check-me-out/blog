@@ -109,6 +109,7 @@ header {
 }
 
 nav.navbar {
+    background-color: @navbar-color-bg;
     background: linear-gradient(to bottom, @navbar-color-bg, darken(@navbar-color-bg, 5%), @navbar-color-bg);
     border-color: @navbar-border-color;
     margin: auto;
@@ -187,6 +188,7 @@ nav.navbar {
     -webkit-border-radius: 5px 5px !important;
     border-radius: 5px 5px !important;
     color: @menu-color;
+    background-color: @menu-bg;
     background: linear-gradient(to bottom, @menu-bg, darken(@menu-bg, 5%), @menu-bg);
     border: 1px solid @navbar-border-color;
     border-top-color: @menu-bg;
@@ -448,12 +450,14 @@ textarea {
 
 .carousel-control.left {
     background: none;
+    filter: 0;
     /*border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;*/
 }
 
 .carousel-control.right {
     background: none;
+    filter: 0;
     /*border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;*/
 }

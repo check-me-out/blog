@@ -22,7 +22,9 @@
         <![endif]-->
     @RenderSection("pageStyle", required: false)
 </head>
+<!--[if gte IE 9]><!---->
 <body>
+
     <div id="bootstrap-css-cdn-fallback" class="hidden"></div>
     <noscript>Please enable Javascript (&lt;a href="http://enable-javascript.com/" title="Instructions to enable Javascript" target="_blank"&gt;help&lt;/a&gt;).</noscript>
 
@@ -111,4 +113,28 @@
     @RenderSection("Scripts", required: false)
 
 </body>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<body>
+    <div role="navigation" class="navbar navbar-inverse" style="background-color: #0f6898; color: #f7f7f7; text-align: center; margin: 0 auto;">
+        <ul class="nav navbar-nav">
+            <li style="display: inline-block"><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li style="display: inline-block"><a href="http://blog.guruin.net">Blog</a></li>
+            <li style="display: inline-block"><a href="#/guru-pen">CodePen/JSFiddle</a></li>
+            <li style="display: inline-block"><a href="#/guru-drive">Dropbox/GDrive</a></li>
+            <li style="display: inline-block"><a href="#/guru-ecommerce">eCommerce</a></li>
+            <li style="display: inline-block"><a href="#/guru-dashboard">Dashboard</a></li>
+        </ul>
+    </div>
+    <div class="jumbotron" style="background-color: #56b4d9; color: #f7f7f7">
+        <div class="container" style="width: 75%; padding: 50px; text-align: center; margin: auto">
+            <p style="color: red">Sorry, support for your version of Internet Explorer is not available!</p><p>&nbsp;</p>
+            <p>This website uses latest versions of Angular JS 1.x, jQuery and other newer libraries,</p>
+            <p>and <b>requires IE 9 or above</b> in order to be viewed in its potential.</p><p>&nbsp;</p>
+            <p>May be it's a good idea to <a href="https://www.microsoft.com/en-gb/download/internet-explorer.aspx" style="color: #fff; text-decoration: underline">upgrade</a> your Internet Explorer? Alternatively,</p>
+            <p>try accessing this website using a newer version of <a href="https://www.google.co.uk/chrome/browser/desktop/index.html" style="color: #fff; text-decoration: underline">Chrome</a> or <a href="https://www.mozilla.org/en-GB/firefox/new/" style="color: #fff; text-decoration: underline">Firefox</a>!</p>
+        </div>
+    </div>
+</body>
+<![endif]-->
 </html>
