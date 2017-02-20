@@ -7,7 +7,7 @@ using Blog.Data.Context;
 using Blog.Data.Model;
 using Blog.Web.Controllers.Api;
 using Blog.Web.Helpers;
-using Blog.Web.Models;
+using Blog.Web.ViewModels;
 using log4net;
 
 namespace Blog.Web.Controllers

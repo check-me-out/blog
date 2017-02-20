@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Blog.Data.Model;
 
-namespace Blog.Web.Models
+namespace Blog.Web.ViewModels
 {
     public class CommentViewModel
     {
