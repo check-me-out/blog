@@ -6,7 +6,7 @@
 @brand-danger:          #d9534f;
 
 @color-primary: #fff;
-@color-primary-bg: darken(darkslategrey, 5%);
+@color-primary-bg: #333;
 @color-2: #fff;
 @color-2-bg: darken(#B7F003, 5%);//coral
 @color-3: #fff;
@@ -167,16 +167,12 @@ nav.navbar-inverse {
 
         & > a {
             color: @menu-color !important;
-            font-weight: bolder;
+            //font-weight: bolder;
         }
 
         &:hover > a, &:focus > a {
             background: none !important;
             color: @menu-hover-color !important;
-
-            .caret {
-                //visibility: hidden;
-            }
         }
     }
 }
@@ -192,8 +188,8 @@ nav.navbar-inverse {
 
 .dropdown-menu {
     margin-top: 10px !important;
-    padding-top: 6px;
-    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
     -moz-border-radius: 5px 5px !important;
     -webkit-border-radius: 5px 5px !important;
     border-radius: 5px 5px !important;
@@ -205,12 +201,12 @@ nav.navbar-inverse {
     -webkit-box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
     box-shadow: 3px 3px 15px -5px rgba(0, 0, 0, 0.8);
+    font-size: 1em;
 
     li {
         a {
             color: @menu-color !important;
-            font-weight: bolder;
-
+            //font-weight: bolder;
             @media(min-width:768px) {
                 text-align: left;
             }
@@ -219,6 +215,16 @@ nav.navbar-inverse {
         &:hover a, &:focus a {
             background: transparent !important;
             color: @menu-hover-color !important;
+        }
+    }
+}
+
+.dropdown-menu-right {
+    li {
+        a {
+            @media(min-width:768px) {
+                text-align: right;
+            }
         }
     }
 }
@@ -234,6 +240,14 @@ nav.navbar-inverse {
         border-bottom-width: 8px;
         border-bottom-color: @menu-bg;
         border-top: 0;
+    }
+
+    .dropdown-menu-right:before {
+        content: "";
+        position: absolute;
+        right: 45px;
+        margin-left: 60px;
+        margin-right: -8px;
     }
 }
 

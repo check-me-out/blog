@@ -1,31 +1,36 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
+    <form id="logoutForm" action="http://blog.guruin.net/Account/LogOff" method="post" class="navbar-right">
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Welcome, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li class="dropdown">@* hover*@
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
-                <ul class="dropdown-menu" role="menu">
+            <li class="dropdown"> @* hover*@
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <b class="caret"></b></a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
 
-                    <li><a href="@Url.Action("Index", "BlogAdmin")">Blog</a></li>
-                    <li><a href="@Url.Action("Index", "GdriveAdmin")">GDrive</a></li>
+                    <li><a href="http://blog.guruin.net/BlogAdmin/Index">Manage Blog</a></li>
+                    <li><a href="http://blog.guruin.net/GdriveAdmin/Index">Manage GDrive</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="loginLink" href="http://blog.guruin.net/Manage/Index" title="Manage">Manage Account</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 
                 </ul>
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
-    }
+        </li>
+    </ul>
+</form>
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li class="dropdown">@* hover*@
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+
+                <li><a id="loginLink" href="http://blog.guruin.net/Account/Login">Log in</a></li>
+                <li><a id="registerLink" href="http://blog.guruin.net/Account/Register">Register</a></li>
+
+            </ul>
+        </li>
     </ul>
 }
