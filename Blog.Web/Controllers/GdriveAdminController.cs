@@ -9,25 +9,22 @@ using System.IO;
 
 namespace Blog.Web.Controllers
 {
+    [Authorize]
     public class GdriveAdminController : Controller
     {
         private GdriveDbContext db = new GdriveDbContext();
 
-        // GET: GdriveAdmin
         public async Task<ActionResult> Index()
         {
             return View(await db.Files.ToListAsync());
         }
 
-        // GET: GdriveAdmin/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: GdriveAdmin/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AdminAuthorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,SecurityCode")] FileContent fileContent, HttpPostedFileBase file)
@@ -52,7 +49,6 @@ namespace Blog.Web.Controllers
             return View(fileContent);
         }
 
-        // GET: GdriveAdmin/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -68,9 +64,7 @@ namespace Blog.Web.Controllers
             return View(fileContent);
         }
 
-        // POST: GdriveAdmin/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [AdminAuthorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,SecurityCode")] FileContent fileContent, HttpPostedFileBase file)
@@ -94,7 +88,6 @@ namespace Blog.Web.Controllers
             return View(fileContent);
         }
 
-        // GET: GdriveAdmin/Download/5
         public async Task<ActionResult> Download(int? id)
         {
             if (id == null)
@@ -109,7 +102,6 @@ namespace Blog.Web.Controllers
             return File(fileContent.Content, GetContentType(fileContent.FileName), fileContent.FileName);
         }
 
-        // GET: GdriveAdmin/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +116,7 @@ namespace Blog.Web.Controllers
             return View(fileContent);
         }
 
-        // POST: GdriveAdmin/Delete/5
+        [AdminAuthorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
