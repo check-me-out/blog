@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
-using Blog.Data.Context;
+using Blog.Data.Contexts.Blog;
+using Blog.Data.Contexts.Gdrive;
 using log4net;
 using Ninject;
 using Ninject.Modules;
@@ -13,6 +14,7 @@ namespace Blog.Web
             var logger = LogManager.GetLogger("BlogLogger");
             Bind<ILog>().ToConstant<ILog>(logger).Named("BlogLogger");
             Bind<IBlogDbContext>().To<BlogDbContext>();
+            Bind<IGdriveDbContext>().To<GdriveDbContext>();
         }
 
         private static readonly StandardKernel Instance = CreateInstance();

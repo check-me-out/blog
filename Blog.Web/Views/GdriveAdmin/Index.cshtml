@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Blog.Data.Model.FileContent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section PageBanner {
+    <div>
+        <h1>
+            Manage Files
+        </h1>
+    </div>
+}
+
+<p>
+    <a href="@Url.Action("Create", "GdriveAdmin")" class="btn btn-primary">Upload File &nbsp; <i class="fa fa-plus-square fa-1_1x"></i></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th style="width: 150px">
+            @Html.DisplayNameFor(model => model.UploadedOn)
+        </th>
+        <th style="width: 150px">Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @if (item.SecurityCode == "AB10E95")
+            {
+                @Html.DisplayFor(modelItem => item.SecurityCode)
+            }
+            else
+            {
+                <span>******</span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @item.UploadedOn.Value.ToString("dd-MM-yyyy")
+        </td>
+        <td>
+            <a href="@Url.Action("Download", "GdriveAdmin", new { id = item.Id })" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-download"></span></a>
+            @*<a href="@Url.Action("Edit", "GdriveAdmin", new { id = item.Id })" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>*@
+            <a href="@Url.Action("Delete", "GdriveAdmin", new { id = item.Id })" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+}
+
+</table>

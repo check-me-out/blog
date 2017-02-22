@@ -1,4 +1,4 @@
-using Blog.Data.Context;
+using Blog.Data.Contexts.Blog;
 using Blog.Data.Model;
 
 namespace Blog.Data.Migrations

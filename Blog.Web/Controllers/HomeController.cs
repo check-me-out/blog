@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Blog.Data.Context;
+using Blog.Data.Contexts.Blog;
 using Blog.Data.Model;
 using Blog.Web.Controllers.Api;
 using Blog.Web.Helpers;

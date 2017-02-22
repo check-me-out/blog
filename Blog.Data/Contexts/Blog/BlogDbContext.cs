@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using Blog.Data.Model;
 
-namespace Blog.Data.Context
+namespace Blog.Data.Contexts.Blog
 {
     public class BlogDbContext : DbContext, IBlogDbContext
     {

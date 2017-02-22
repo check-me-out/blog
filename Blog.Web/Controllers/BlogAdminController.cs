@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Net;
 using System.Web.Mvc;
-using Blog.Data.Context;
+using Blog.Data.Contexts.Blog;
 using Blog.Data.Model;
 using System.Linq;
 using System.Collections.Generic;

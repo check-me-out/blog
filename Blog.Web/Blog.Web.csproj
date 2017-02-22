@@ -198,6 +198,7 @@
     <Compile Include="Controllers\Api\BlogController.cs" />
     <Compile Include="Controllers\BlogAdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GdriveAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -370,6 +371,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Views\GdriveAdmin\Create.cshtml" />
+    <Content Include="Views\GdriveAdmin\Delete.cshtml" />
+    <Content Include="Views\GdriveAdmin\Edit.cshtml" />
+    <Content Include="Views\GdriveAdmin\Index.cshtml" />
     <None Include="Web.Live.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

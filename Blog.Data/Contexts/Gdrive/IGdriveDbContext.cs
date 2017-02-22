@@ -4,9 +4,9 @@ using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using Blog.Data.Model;
 
-namespace Blog.Data.Context
+namespace Blog.Data.Contexts.Gdrive
 {
-    public interface IBlogDbContext : IDisposable
+    public interface IGdriveDbContext : IDisposable
     {
         int SaveChanges();
 
@@ -14,9 +14,6 @@ namespace Blog.Data.Context
 
         DbEntityEntry Entry(object entity);
 
-        DbSet<Post> Posts { get; set; }
-        DbSet<Category> Categories { get; set; }
-        DbSet<Tag> Tags { get; set; }
-        DbSet<BadWords> BadWords { get; set; }
+        DbSet<FileContent> Files { get; set; }
     }
 }

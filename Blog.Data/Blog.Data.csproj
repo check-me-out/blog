@@ -66,8 +66,10 @@
     <Compile Include="..\Blog.Web\Properties\VersionInfo.cs">
       <Link>Properties\VersionInfo.cs</Link>
     </Compile>
-    <Compile Include="Context\BlogDbContext.cs" />
-    <Compile Include="Context\IBlogDbContext.cs" />
+    <Compile Include="Contexts\Blog\BlogDbContext.cs" />
+    <Compile Include="Contexts\Blog\IBlogDbContext.cs" />
+    <Compile Include="Contexts\Gdrive\GdriveDbContext.cs" />
+    <Compile Include="Contexts\Gdrive\IGdriveDbContext.cs" />
     <Compile Include="Migrations\201702071532325_InitialCreate.cs" />
     <Compile Include="Migrations\201702071532325_InitialCreate.Designer.cs">
       <DependentUpon>201702071532325_InitialCreate.cs</DependentUpon>
@@ -80,12 +82,17 @@
     <Compile Include="Migrations\201702121406218_CategoryId.Designer.cs">
       <DependentUpon>201702121406218_CategoryId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702220354345_GdriveInitialCreate.cs" />
+    <Compile Include="Migrations\201702220354345_GdriveInitialCreate.Designer.cs">
+      <DependentUpon>201702220354345_GdriveInitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Archive.cs" />
     <Compile Include="Model\BadWords.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\CheckMyNameAttribute.cs" />
     <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\FileContent.cs" />
     <Compile Include="Model\Post.cs" />
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,7 +119,11 @@
     <EmbeddedResource Include="Migrations\201702121406218_CategoryId.resx">
       <DependentUpon>201702121406218_CategoryId.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702220354345_GdriveInitialCreate.resx">
+      <DependentUpon>201702220354345_GdriveInitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

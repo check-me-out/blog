@@ -9,8 +9,14 @@
             <li>
                 @Html.ActionLink("Welcome, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
-            <li>
-                @Html.ActionLink("Administration", "Index", "BlogAdmin", routeValues: null, htmlAttributes: new { title = "Add/Amend Blogs" })
+            <li class="dropdown">@* hover*@
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+
+                    <li><a href="@Url.Action("Index", "BlogAdmin")">Blog</a></li>
+                    <li><a href="@Url.Action("Index", "GdriveAdmin")">GDrive</a></li>
+
+                </ul>
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
@@ -21,21 +27,5 @@ else
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-        @*<li class="dropdown">
-            <a id="loginLink" href="@Url.Action("Login", "Account")" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <form class="navbar-form">
-                    <div class="form-group" style="padding: 3px">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group" style="padding: 3px">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <div style="padding: 3px">
-                        <button type="submit" class="btn btn-info btn-block">Sign In</button>
-                    </div>
-                </form>
-            </ul>
-        </li>*@
     </ul>
 }
