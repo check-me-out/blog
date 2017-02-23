@@ -1,6 +1,6 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <form id="logoutForm" action="http://blog.guruin.net/Account/LogOff" method="post" class="navbar-right">
+    <form id="logoutForm" action="@Url.Action("LogOff", "Account")" method="post" class="navbar-right">
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
@@ -8,12 +8,12 @@
                 <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">@User.Identity.Name <b class="caret"></b></a>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
 
-                    <li><a href="http://blog.guruin.net/BlogAdmin/Index">Manage Blog</a></li>
-                    <li><a href="http://blog.guruin.net/GdriveAdmin/Index">Manage GDrive</a></li>
+                    <li><a href="@Url.Action("Index", "BlogAdmin")">Manage Blog</a></li>
+                    <li><a href="@Url.Action("Index", "GdriveAdmin")">Manage GDrive</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a id="loginLink" href="http://blog.guruin.net/Manage/Index" title="Manage">Manage Account</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
 
                 </ul>
         </li>
@@ -27,8 +27,8 @@ else
             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
 
-                <li><a id="loginLink" href="http://blog.guruin.net/Account/Login">Log in</a></li>
-                <li><a id="registerLink" href="http://blog.guruin.net/Account/Register">Register</a></li>
+                <li><a id="loginLink" href="@Url.Action("Login", "Account")">Log in</a></li>
+                <li><a id="registerLink" href="@Url.Action("Register", "Account")">Register</a></li>
 
             </ul>
         </li>

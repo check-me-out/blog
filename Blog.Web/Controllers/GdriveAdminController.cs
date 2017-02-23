@@ -6,6 +6,7 @@ using Blog.Data.Contexts.Gdrive;
 using Blog.Data.Model;
 using System.Web;
 using System.IO;
+using System.Linq;
 
 namespace Blog.Web.Controllers
 {
@@ -16,7 +17,7 @@ namespace Blog.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            return View(await db.Files.ToListAsync());
+            return View(await db.Files.OrderByDescending(o => o.UploadedOn).ToListAsync());
         }
 
         public ActionResult Create()

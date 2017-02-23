@@ -60,14 +60,14 @@ var utils = (function () { // jshint ignore: line
 
     function showProcessing(message) {
         if (message) {
-            $("#work-in-progress div").html(message);
+            $("#work-in-progress .message").html(message);
         }
 
         $("#work-in-progress").show();
     }
 
     function hideProcessing() {
-        $("#work-in-progress div").html('');
+        $("#work-in-progress .message").html('');
         $("#work-in-progress").hide();
     }
 

@@ -31,8 +31,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="Content/packages/jquery/dist/jquery.min.js"><\/script>')</script>
 
-    @Html.Partial("_workInProgress")
-
     <main>
         <section class="page-banner-section color-primary">
             <div class="navbar-placeholder">
@@ -52,6 +50,8 @@
 
         <section class="body-and-footer" style="min-height: calc(100% - 320px)">
             <section class="body-content container">
+                @Html.Partial("_workInProgress")
+
                 <div class="row" style="margin-left: -15px; margin-right: -15px">
                     @if (IsSectionDefined("blogMenu"))
                     {

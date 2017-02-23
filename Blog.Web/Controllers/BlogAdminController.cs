@@ -21,7 +21,7 @@ namespace Blog.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            return View(await _db.Posts.ToListAsync());
+            return View(await _db.Posts.OrderByDescending(o => o.PostedOn).ToListAsync());
         }
 
         public ActionResult Create()

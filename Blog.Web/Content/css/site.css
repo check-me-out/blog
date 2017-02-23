@@ -288,6 +288,7 @@ main {
 /* Set padding to keep content from hitting the edges */
 .body-content {
   padding: 15px 15px 40px 15px;
+  font-size: 12px;
 }
 .row {
   margin-left: 0;
@@ -606,26 +607,21 @@ footer {
 }
 #work-in-progress {
   display: none;
-  position: fixed;
-  top: 48%;
-  left: 48%;
-  z-index: 1200;
-}
-#work-in-progress span {
-  position: fixed;
-  top: 295px;
+  position: absolute;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
 }
-#work-in-progress i {
-  color: #eee;
+#work-in-progress .message-container {
+  display: block;
 }
-#work-in-progress div {
+#work-in-progress .message-container .message {
+  display: inline-block;
   color: #333;
-  margin-left: -50px;
+  padding: 2px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
   font-weight: bold;
 }
 /* Styles for table
