@@ -4,13 +4,12 @@
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                @* hover*@
             <a href="javascript:void(0);" class="dropdown-toggle navbar-normal" data-toggle="dropdown">@User.Identity.Name <b class="caret"></b></a>
             <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                <li><a href="http://cms.guruin.net/BlogAdmin/Index" class="navbar-normal">Manage Blog</a></li>
-                <li><a href="http://cms.guruin.net/GdriveAdmin/Index" class="navbar-normal">Manage GDrive</a></li>
+                <li><a href="http://CMS.ShreeVenkat.co.uk/BlogAdmin/Index" class="navbar-normal">Manage Blog</a></li>
+                <li><a href="http://CMS.ShreeVenkat.co.uk/GdriveAdmin/Index" class="navbar-normal">Manage GDrive</a></li>
                 <li role="separator" class="navbar-normal divider"></li>
-                <li><a class="navbar-normal" id="loginLink" href="http://cms.guruin.net/Manage/Index" title="Manage">Manage Account</a></li>
+                <li><a class="navbar-normal" id="loginLink" href="http://CMS.ShreeVenkat.co.uk/Manage/Index" title="Manage">Manage Account</a></li>
                 <li role="separator" class="divider navbar-normal"></li>
                 <li><a class="navbar-normal" href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
             </ul>
@@ -22,12 +21,13 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-            @* hover*@
-        <a href="javascript:void(0);" class="dropdown-toggle navbar-normal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CMS.GuruIn.NET <span class="caret"></span></a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-            <li><a class="navbar-normal" id="loginLink" href="http://cms.guruin.net/Account/Login">Log in</a></li>
-            <li><a class="navbar-normal" id="registerLink" href="http://cms.guruin.net/Account/Register">Register</a></li>
-        </ul>
-    </li>
-</ul>
+            <a href="javascript:void(0);" class="dropdown-toggle navbar-normal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CMS Subdomain <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+
+                <li><a class="navbar-normal" id="loginLink" href="http://CMS.ShreeVenkat.co.uk/Account/Login">Log in</a></li>
+                <li><a class="navbar-normal" id="registerLink" href="http://CMS.ShreeVenkat.co.uk/Account/Register">Register</a></li>
+
+            </ul>
+        </li>
+    </ul>
 }
