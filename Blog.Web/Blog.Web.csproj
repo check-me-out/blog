@@ -184,23 +184,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AdminAuthorizeAttribute.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyResolver.cs" />
     <Compile Include="App_Start\DependencyScope.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\ModuleLoader.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\BlogController.cs" />
-    <Compile Include="Controllers\BlogAdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\GdriveAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,11 +201,8 @@
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Helpers\EmailEngine.cs" />
     <Compile Include="Helpers\EmbeddedResource.cs" />
-    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\BlogViewModel.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
-    <Compile Include="ViewModels\IdentityModels.cs" />
-    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\VersionInfo.cs" />
@@ -224,11 +214,6 @@
     <Content Include="Content\images\gif-load.gif" />
     <Content Include="Content\js\blog-layout.js" />
     <Content Include="Content\bundles\third-party-libs.min.js" />
-    <Content Include="Content\images\all-logos-sprite.png" />
-    <Content Include="Content\images\blue-purple-gradient-bg.png" />
-    <Content Include="Content\images\alt-bootstrap-logo.png" />
-    <Content Include="Content\images\developer.png" />
-    <Content Include="Content\images\teal-gradient-bg.png" />
     <Content Include="Content\css\site.css">
       <DependentUpon>site.less</DependentUpon>
     </Content>
@@ -371,34 +356,12 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\GdriveAdmin\Create.cshtml" />
-    <Content Include="Views\GdriveAdmin\Delete.cshtml" />
-    <Content Include="Views\GdriveAdmin\Edit.cshtml" />
-    <Content Include="Views\GdriveAdmin\Index.cshtml" />
     <None Include="Web.Live.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
@@ -438,10 +401,6 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\blog.guruin.net - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_workInProgress.cshtml" />
-    <Content Include="Views\BlogAdmin\Create.cshtml" />
-    <Content Include="Views\BlogAdmin\Delete.cshtml" />
-    <Content Include="Views\BlogAdmin\Edit.cshtml" />
-    <Content Include="Views\BlogAdmin\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

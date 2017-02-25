@@ -10,11 +10,11 @@
 <div class="collapse navbar-collapse">
 
     <ul class="nav navbar-nav">
-        <li class="hidden-xs"><a href="http://demo.guruin.net/" style="font-weight: bold">Guru In .NET</a></li>
-        <li><a href="http://demo.guruin.net/#/profile/shree-venkat">Profile</a></li>
-        <li><a href="http://demo.guruin.net/#/guru-drive">Dropbox/GDrive</a></li>
-        <li><a href="http://demo.guruin.net/#/guru-retail">Retail Shopping</a></li>
-        <li><a href="http://demo.guruin.net/#/guru-pen">CodePen/JSFiddle</a></li>
+        <li class="hidden-xs"><a href="http://demo.guruin.net/" class="navbar-normal" style="font-weight: bold">Guru In .NET</a></li>
+        <li><a href="http://demo.guruin.net/#/profile/shree-venkat" class="navbar-normal">Profile</a></li>
+        <li><a href="http://demo.guruin.net/#/guru-drive" class="navbar-normal">Dropbox/GDrive</a></li>
+        <li><a href="http://demo.guruin.net/#/guru-retail" class="navbar-normal">Retail Shopping</a></li>
+        <li><a href="http://demo.guruin.net/#/guru-pen" class="navbar-normal">CodePen/JSFiddle</a></li>
         @*<li class="dropdown">
             <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Retail Demo <b class="caret"></b></a>
             <ul class="dropdown-menu" role="menu">
@@ -22,7 +22,7 @@
                 <li><a href="http://demo.guruin.net/#/guru-dashboard">Dashboard</a></li>
             </ul>
         </li>*@
-        <li><a href="@Url.Action("AllPosts", "Home", new { id = "" })">Blog.GuruIn.Net</a></li>
+        <li><a href="@Url.Action("AllPosts", "Home", new { id = "" })" class="navbar-highlight">Blog.GuruIn.Net</a></li>
     </ul>
 
     @Html.Partial("_LoginPartial")
