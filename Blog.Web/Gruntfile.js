@@ -1,10 +1,12 @@
 module.exports = function (grunt) {
     "use strict";
 
+    grunt.registerTask('dev-mode', ['default', 'watch']);
     grunt.registerTask('default', ['jshint', 'build']);
     grunt.registerTask('build', ['clean', 'pack-css', 'pack-js']);
     grunt.registerTask('pack-css', ['less', 'cssmin']);
     grunt.registerTask('pack-js', ['uglify']);
+    grunt.registerTask('watch', ['cssSrc', 'jsSrc']);
 
     var bundleconfig = grunt.file.readJSON('bundleconfig.json');
     var getBundle = function (name) {
@@ -73,6 +75,17 @@ module.exports = function (grunt) {
                 jshintrc: true
             },
             files: ["*.js", "Content/js/*.js", "!Content/js/site.min.js", "!Content/packages/**/*.js"]
+        },
+
+        watch: {
+            cssSrc: {
+                files: ['Content/css/site.less'],
+                tasks: ['pack-css']
+            },
+            jsSrc: {
+                files: ['<%= jshint.files %>'],
+                tasks: ['jshint', 'uglify:siteJsBundle']
+            },
         }
     };
 
@@ -81,6 +94,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.initConfig(gruntConfig);
 };
