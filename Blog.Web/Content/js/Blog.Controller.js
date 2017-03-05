@@ -1,7 +1,7 @@
 ﻿(function init() {
     "use strict";
 
-    utils.showProcessing('Waking up GoDaddy 0_0');
+    utils.showProcessing('Loading Posts ...');
 
     var blogVm = new allPostsMvcViewModel.BlogViewModel(allPostsMvcViewModel.ApiClient, allPostsMvcViewModel.RootUrl);
     $.when(blogVm.LoadPosts())
